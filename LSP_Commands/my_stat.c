@@ -1,3 +1,7 @@
+/*
+USE: $:stat abc.txt p
+     $:stat -h -v --size abc.txt --inode
+*/
 #include<stdio.h>
 #include<sys/stat.h>
 #include<sys/types.h>
