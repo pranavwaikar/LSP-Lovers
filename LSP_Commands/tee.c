@@ -1,3 +1,7 @@
+/*
+USE: $:tee -s /dev/pts/0 -d /dev/pts/1
+     $:tee -s src_file -d dest_file
+*/
 #include<stdio.h>
 //I,O system calls
 #include<fcntl.h>
@@ -61,6 +65,12 @@ int main(int argc,char *argv[])
 	{
 		tee(src_file_name,out_file_name);
 	}
+	else
+	{
+		//if no options are given then default behaviour of tee command
+		tee(ttyname(0),ttyname(0));	
+	}
+	
 	return 0;
 	exit(EXIT_SUCCESS);
 }
