@@ -1,3 +1,8 @@
+/*
+USE: $:copy abc.txt pqr.txt
+     $:copy src_file dest_file
+*/
+
 #include<stdio.h>
 //I,O system calls
 #include<fcntl.h>
