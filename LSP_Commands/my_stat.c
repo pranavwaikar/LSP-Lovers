@@ -14,8 +14,6 @@
 #define TRUE  0
 #define FALSE 1
 
-#define BIT_SET      10
-#define BIT_NOT_SET  20
 
 //flags for required fields
 /*
