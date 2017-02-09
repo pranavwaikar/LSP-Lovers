@@ -9,9 +9,9 @@ cat
 
 learned about--
 
-lseek
-file holes demo
-race conditions
-atomicity
-ioctl --cdrom eject
+lseek,
+file holes,
+race conditions,
+atomicity,
+ioctl --cdrom eject,
 in open if O_CREAT|O_EXCL are used if file exists,system call fails.
