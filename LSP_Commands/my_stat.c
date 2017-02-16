@@ -1,5 +1,5 @@
 /*
-USE: $:stat abc.txt p
+USE: $:stat abc.txt 
      $:stat -h -v --size abc.txt --inode
 */
 #include<stdio.h>
@@ -11,6 +11,7 @@ USE: $:stat abc.txt p
 //error handeling 
 #include<errno.h>
 #include<string.h>
+
 #include<getopt.h>
 #include<time.h>
 
@@ -23,7 +24,7 @@ USE: $:stat abc.txt p
 /*
 What is this?
 We are creating a unique number for used flags combination like permission model of unix.
-These are flags,when set: a perticular bit number will be set;
+These are flags,when set: a particular bit number will be set;
 eg. if DEV_ID is used the zeroth bit will be set (in binary-- 0000 0000 0001)
 eg. if STAT_CHG_TIME is used the 12th bit be set  (in binary--1000 0000 0000)
 */
