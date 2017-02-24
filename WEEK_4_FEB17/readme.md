@@ -1,4 +1,4 @@
-23 Feb 2016
+23 Feb 2017
 
 What we learned ?-->
 
@@ -22,3 +22,27 @@ Demos-->
 5)wait()
 6)exit() and atexit() 
 7)opendir() ,readdir() , closedir()
+
+
+
+
+24 Feb 2017
+
+
+What we learned ?-->
+
+
+1)What is a signal?
+2)How desposition of signal happens?
+3)Who can send signal?
+4)When signal is processed?
+5)Where signal bits are saved?
+6)How to send a signal?
+7)What are types of sleep?
+8)When signal will kept pending and when delivered immediately depend on sleep types?
+9)What is exteneded attributes?
+10)mygcc explaination.
+ 
+ Demos-->
+ 1)signal() ,kill()
+ 2)setxattr() , getxattr() , removexattr()
