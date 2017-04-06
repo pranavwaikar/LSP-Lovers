@@ -245,12 +245,9 @@ char *exe_create(char *o_src_file_name,char *exe_op_file_name)
 
 	if(fork()==0)
 	{
-		err = execlp("ld","ld","-o",temp_exe_op_file_name,"-lc","-dynamic-linker","/lib64/ld-linux-x86-64.so.2",o_src_file_name,"-e","main",(char *)0);
+		err = execlp("ld","ld","-o",temp_exe_op_file_name,"-lc","-dynamic-linker","/lib/i386-linux-gnu/ld-linux.so.2",o_src_file_name,"-e","main",(char *)0);
 		if(err == -1)
-		{
 			fprintf(stderr, "\nFAILED:exec:ld\n");
-			exit(EXIT_FAILURE);
-		}
 	}
 	else
 	{
@@ -294,7 +291,6 @@ flag_t decide(STAGE stage,char *src_file_name)
 	if(errval==-1)
 	{
 		fprintf(stdout, "%s:%s:%s\n",print_time(),src_file_name,strerror(errno));
-		exit(EXIT_FAILURE);
 	}
 
 	errval = stat(copy,&stat_buff2);

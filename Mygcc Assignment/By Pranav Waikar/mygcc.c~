@@ -135,7 +135,6 @@ dup2(fd,STDOUT_FILENO);	//redirected stdout to build.log file
 void sys_err(char *str)
 {
 	fprintf(stderr,"%s:%s",str,strerror(errno));
-	exit(EXIT_FAILURE);
 }
 
 int delete_file(char *file_name)
@@ -145,8 +144,7 @@ int delete_file(char *file_name)
 	if(err==-1)
 	{
 		fprintf(stdout,"%s:ERROR Deleting file:%s\n",print_time(),file_name);
-		exit(EXIT_FAILURE);
-		return err;	
+		exit(EXIT_FAILURE);	
 	}
 	else
 	{
@@ -260,7 +258,7 @@ char *temp_exe_op_file_name=calloc(ilen,sizeof(char));
 	}
 	if(fork()==0)
 	{
-		err=execlp("ld","ld","-o",temp_exe_op_file_name,"-lc","-dynamic-linker","/lib64/ld-linux-x86-64.so.2",o_src_file_name,"-e","main",(char *)0);
+		err=execlp("ld","ld","-o",temp_exe_op_file_name,"-lc","-dynamic-linker","/lib/i386-linux-gnu/ld-linux.so.2",o_src_file_name,"-e","main",(char *)0);
 		if(err==-1)
 		{
 			fprintf(stderr,"\nFAILED:exec:ld\n");
@@ -304,7 +302,7 @@ flag_t decide(STAGE stage,char *src_file_name)
 		strncat(copy,"",str_len);
 	}
 	
-	fprintf(stdout,"%s:Checking previous builds:%s\n",print_time(),copy,strerror(errno));
+	fprintf(stdout,"%s:Checking previous builds:%s\n",print_time(),copy);
 	
 	errval=stat(src_file_name,&stat_buff1);
 		if(errval==-1)

@@ -89,6 +89,7 @@ int del(char *filename)
 	if(derr==-1)
 	{
 		fprintf(stdout,"Error Deleting file%s\n",filename);
+		exit(EXIT_FAILURE);
 		return (derr);
 	}
 	else
@@ -153,7 +154,10 @@ char *ASMfile(char *src_file,char *dest_file)
 	{
 		err=execlp("/usr/bin/gcc","gcc","-S","-o",temp,src_file,(char *)0);
 		if(err==-1)
+		{
 			printf("\nERROR::exec() failed\n");
+			exit(EXIT_FAILURE);
+		}
 	}
 	else
 	{
@@ -189,7 +193,10 @@ char *OBJfile(char *src_file,char *dest_file)
 	{
 		err=execlp("/usr/bin/as","as","-o",temp2,src_file,(char *)0);
 		if(err==-1)
+		{
 			printf("\nERROR::exec() failed\n");
+			exit(EXIT_FAILURE);
+		}
 	}
 	else
 	{
@@ -222,7 +229,10 @@ char *EXEfile(char *src_file,char *dest_file)
 	{
 		err=execlp("ld","ld","-o",temp3,"-lc","-dynamic-linker","/lib64/ld-linux-x86-64.so.2",src_file,"-e","main",(char *)0); // 64 bit machine
 		if(err==-1)
+		{
 			printf("\nERROR::exec() failed\n");
+			exit(EXIT_FAILURE);
+		}
 	}
 	else
 	{
